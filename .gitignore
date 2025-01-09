@@ -1,0 +1,6 @@
+node_modules/
+
+user-management/.env
+customer-management/.env
+sales-management/.env
+
