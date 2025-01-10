@@ -12,7 +12,7 @@ const connection = async () => {
         await sequelize.authenticate();
         console.log(config.db.database, "veritabanına bağlandı.");
     }catch(err){
-        console.log("Veritabanı bağlantı hatası", err.message);
+        console.log("Veritabanı bağlantı hatası:", err.message);
     }
 }
 
