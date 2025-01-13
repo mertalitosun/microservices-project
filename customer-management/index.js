@@ -7,7 +7,7 @@ const sequelize = require("../common/db/dbConnection");
 const handleError = require('../common/middlewares/errorHandler');
 
 require("../common/db/dbConnection");
-// require("./src/data/relationships");
+require("./src/data/relationships");
 
 
 app.use(cors({origin: '*',credentials: true}));
