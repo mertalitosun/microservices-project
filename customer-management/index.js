@@ -18,7 +18,7 @@ const customerRoutes = require("./src/routes/customer");
 const noteRoutes = require("./src/routes/note");
 
 app.use(customerRoutes);
-// app.use(noteRoutes);
+app.use(noteRoutes);
 
 // (async () => {
 //   await sequelize.sync({ force: true });
