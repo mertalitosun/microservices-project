@@ -14,6 +14,11 @@ app.use(cors({origin: '*',credentials: true}));
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
 
+const customerRoutes = require("./src/routes/customer");
+const noteRoutes = require("./src/routes/note");
+
+app.use(customerRoutes);
+// app.use(noteRoutes);
 
 // (async () => {
 //   await sequelize.sync({ force: true });
