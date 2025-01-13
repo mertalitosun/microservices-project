@@ -7,7 +7,6 @@ const isAuth = (req,res,next) => {
         return res.status(403).json({success:false,message:"Token gerekli!"});
     }
 
-    console.log("env<<<>>>>>>>>",process.env.JWT_SECRET)
     jwt.verify(token,process.env.JWT_SECRET,(err,decoded)=> {
         if(err){
             return res.status(403).json({ success: false, message: "Geçersiz token!" });
