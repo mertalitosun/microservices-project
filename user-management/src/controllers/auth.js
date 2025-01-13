@@ -16,50 +16,49 @@ exports.login = async(req,res) => {
         const match = await bcrypt.compare(password,user.password);
 
         if(!match){
-            return res.status(401).json({success:"false", message: 'Şifre yanlış.'})
+            return res.status(401).json({success:"false", message: 'Hatalı Parola!'})
         }
 
         if(match){
-            const token = jwt.sign({user},process.env.JWT_SECRET,{expiresIn:"1h"});
+            const token = jwt.sign({id:user.id,email:user.email,roleId:user.roleId},process.env.JWT_SECRET,{expiresIn:"1h"});
             return res.status(200).json({ success: "true", token, message: "Başarıyla giriş yapıldı." });
         }
     }catch(err){
-        console.log(err);
+        console.log("Hata:",err);
         res.status(500).json({ success:"false", message: 'Bir hata oluştu.', errMsg: err.message });
     }
 }
 
-exports.register = async (req,res) => {
-    const {name,surname,email,password,role} = req.body;
+// exports.register = async (req,res) => {
+//     const {name,surname,email,password,role} = req.body;
 
-    try{
-        //kullanıcı kontrol
-        const existingUser = await Users.findOne({ where: { email } });
-        if (existingUser) {
-        return res.status(400).json({success:"false", message: 'Bu e-posta zaten kullanılıyor.' });
-        }
+//     try{
+//         //kullanıcı kontrol
+//         const existingUser = await Users.findOne({ where: { email } });
+//         if (existingUser) {
+//         return res.status(400).json({success:"false", message: 'Bu e-posta zaten kullanılıyor.' });
+//         }
 
-        const hashedPassword = await bcrypt.hash(password,10);
+//         const hashedPassword = await bcrypt.hash(password,10);
 
-        // rol kontrol
-        const roleData = await Roles.findByPk(role);  
-        if (!roleData) {
-        return res.status(400).json({success:"false", message: 'Geçersiz rol.' });
-        }
+//         // rol kontrol
+//         const roleData = await Roles.findByPk(role);  
+//         if (!roleData) {
+//         return res.status(400).json({success:"false", message: 'Geçersiz rol.' });
+//         }
 
-        const newUser = await Users.create({
-            name,
-            surname,
-            email,
-            password: hashedPassword,
-            roleId: roleData.id
-        });
+//         const newUser = await Users.create({
+//             name,
+//             surname,
+//             email,
+//             password: hashedPassword,
+//         });
 
-        res.status(201).json({success:"true",
-            message: 'Kullanıcı başarıyla oluşturuldu.',
-        });
-    }catch(err){
-        console.error(err);
-        res.status(500).json({success:"false", message: 'Bir hata oluştu.', errMsg: err.message});
-    }
-}
+//         res.status(201).json({success:"true",
+//             message: 'Kullanıcı başarıyla oluşturuldu.',
+//         });
+//     }catch(err){
+//         console.error(err);
+//         res.status(500).json({success:"false", message: 'Bir hata oluştu.', errMsg: err.message});
+//     }
+// }
