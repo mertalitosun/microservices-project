@@ -25,6 +25,10 @@ exports.get_user_byId = async (req,res,next) => {
             return res.status(404).json({success:false,message:"Kullanıcı Bulunamadı!"});
         }
 
+        if(userId !== req.user.id.toString()){
+            return res.status(403).json({ success: false, message: "Sadece kendi bilgilerinizi görüntüleyebilirsiniz!"});
+        }
+
         return res.status(200).json({success:true,message:"Kullanıcı başarıyla getirildi.",data:user});
     }catch(err){
         next(err)
@@ -80,6 +84,9 @@ exports.update_user = async (req,res,next) => {
             return res.status(404).json({success:false,message:"Kullanıcı Bulunamadı!"});
         }
 
+        if(userId !== req.user.id.toString()){
+            return res.status(403).json({ success: false, message: "Sadece kendi bilgilerinizi güncelleyebilirsiniz!"});
+        }
 
         user.name = name || user.name;
         user.surname = surname || user.surname;
@@ -115,7 +122,9 @@ exports.delete_user = async (req,res,next) => {
         if(!user){
             return res.status(404).json({success:false,message:"Kullanıcı bulunamadı!"});
         }
-
+        if(userId !== req.user.id.toString()){
+            return res.status(403).json({ success: false, message: "Sadece kendi bilgilerinizi silebilirsiniz!"});
+        }
         await user.destroy();
 
         return res.status(200).json({success:true,message:"Kullanıcı başarıyla silindi."});
