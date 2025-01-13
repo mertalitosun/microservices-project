@@ -69,7 +69,7 @@ exports.update_customers = async (req,res,next) => {
 exports.get_customer_byId = async (req,res,next) => {
     const {customerId} = req.params;
     try{
-        const customer = await Customers.findByPk(customerId);
+        const customer = await Customers.findByPk(customerId,{include:{model:Notes}});
 
         if(!customer){
             return res.status(404).json({success:false,message:"Müşteri Bulunamadı!"});
