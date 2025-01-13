@@ -1,4 +1,4 @@
-const sequelize = require("../data/dbConnection")
+const sequelize = require("../../../common/db/dbConnection")
 const {DataTypes} = require("sequelize");
 
 const Roles = sequelize.define("roles",{

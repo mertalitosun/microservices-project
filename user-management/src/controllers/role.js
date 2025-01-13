@@ -1,5 +1,4 @@
 const Roles = require("../models/roles");
-
 exports.get_roles = async (req,res,next) => {
     try{
         const roles = await Roles.findAll();

@@ -2,10 +2,11 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 require("dotenv").config();
-const sequelize = require("./src/data/dbConnection");
-const handleError = require('./src/middlewares/errorHandler');
 
-require("./src/data/dbConnection");
+const sequelize = require("../common/db/dbConnection");
+const handleError = require('../common/middlewares/errorHandler');
+
+require("../common/db/dbConnection");
 require("./src/data/relationships");
 
 

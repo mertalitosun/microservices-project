@@ -1,8 +1,6 @@
 const Users = require("../models/users");
 const Roles = require("../models/roles");
 
-
-
 exports.get_users = async (req,res,next) => {
     try{
         const users = await Users.findAll({include:{model:Roles}});
