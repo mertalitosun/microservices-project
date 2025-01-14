@@ -22,4 +22,12 @@ const isAdmin = (req,res,next) => {
     }
     next();
 }
-module.exports = {isAuth,isAdmin}
+
+const isSales = (req,res,next) => {
+    if(req.user.role !== "Satış Ekibi"){
+        return res.status(403).json({success:false,message:"Yetkisiz İşlem!"});
+    }
+    next();
+}
+
+module.exports = {isAuth,isAdmin,isSales}
