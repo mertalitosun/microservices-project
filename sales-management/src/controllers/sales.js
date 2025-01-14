@@ -6,7 +6,7 @@ exports.update_sales = async (req,res,next) => {
     const {saleId} = req.params;
     const {note,status} = req.body;
     try{
-        const sale = await SalesStatuses.findOne(saleId);
+        const sale = await SalesStatuses.findOne({where:{saleId}});
 
         if(!sale){
             return res.status(404).json({success:false,message:"Satış bilgileri bulunamadı!"});
@@ -53,10 +53,14 @@ exports.create_sales = async (req,res,next) => {
 
     try{
 
-        const customer = await axios.get(`http://localhost:3003/customers/${customerId}`);
+        const customer = await axios.get(`http://localhost:3003/customers/${customerId}`,{
+            headers:{
+                Authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtZXJ0YWxpMjYzNUBpY2xvdWQuY29tIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM2ODU2MzYwLCJleHAiOjE3MzY4NTk5NjB9.anRyVICHFxDzvZohqHHJzo8-Icp4R-AjBroTo8mYPVA`
+            }
+        });
 
         if(!customer.data.success){
-            return res.status(404).json({success:false,message:"Müşteri Bulunamadı!"});
+           return customer.message
         }
         
         const newSale = await Sales.create({
@@ -71,7 +75,13 @@ exports.create_sales = async (req,res,next) => {
         });
 
         return res.status(201).json({success:true,message:"Satış başarıyla kaydedildi.",data:{newSale,newSalesStatus}});
-    }catch(err){
-        next(err);
+    }catch(error){
+        if (error.response) {
+            if (error.response.status === 404) {
+                return res.status(404).json({ success: false, message: "Müşteri bulunamadı." });
+            }
+        }
+
+        next(error);
     }
 }
