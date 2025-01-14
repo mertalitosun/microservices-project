@@ -14,5 +14,5 @@ app.use(express.json());
 
 app.listen(process.env.PORT || 3004, () => {
     console.log(process.env.PORT || 3004, "portuna bağlandı. Api-gateway");
-  });
+});
   
