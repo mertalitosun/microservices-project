@@ -1,6 +1,6 @@
 const Customers = require("../models/customers");
 const Notes = require("../models/notes");
-
+const {Op} = require("sequelize");
 exports.create_customers = async (req,res,next) => {
     const {name,surname,email,phone,company} = req.body;
 
@@ -82,8 +82,15 @@ exports.get_customer_byId = async (req,res,next) => {
 }
 
 exports.get_customers = async (req,res,next) => {
+    const {sortBy = "createdAt", order = "ASC",name,email,surname,company,phone} = req.query;
     try{
-        const customers = await Customers.findAll();
+        const customers = await Customers.findAll({where:{
+            ...(name && {name:{[Op.like] : `%${name}%`}}),
+            ...(surname && {surname:{[Op.like] : `%${surname}%`}}),
+            ...(company && {company:{[Op.like] : `%${company}%`}}),
+            ...(phone && {phone:{[Op.like] : `%${phone}%`}}),
+            ...(email && {email:{[Op.like] : `%${email}%`}}),
+        },order:[[sortBy, order.toUpperCase()]]});
 
         if(!customers){
             return res.status(404).json({success:false,message:"Müşteriler bulunamadı"});
