@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const cors = require("cors")
 require("dotenv").config();
 
 const sequelize = require("../common/db/dbConnection");
@@ -14,6 +15,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
+const salesRoutes = require("./src/routes/sales");
+
+app.use(salesRoutes);
 
 // (async () => {
 //   await sequelize.sync({ force: true });
