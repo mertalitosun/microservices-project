@@ -24,10 +24,10 @@ app.use(userRoutes);
 app.use(roleRoutes);
 app.use(swaggerRoutes);
 
-// (async () => {
-//   await sequelize.sync({ force: true });
-//   await require("./src/db/dummyData")();
-// })();
+(async () => {
+  await sequelize.sync({ force: true });
+  await require("./src/db/dummyData")();
+})();
 
 
 app.use(handleError);

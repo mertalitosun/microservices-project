@@ -71,5 +71,33 @@ Yada
     - `users` - Users mikroservisi
     - `sales` - Sales mikroservisi
 
+# Projeye Başlama Talimatları
+
+## 1. Git Repo'yu Klonlayın
+Projeyi GitHub'dan klonlamak için terminalde şu komutu çalıştırın:
+```bash
+git clone <repo-url>
+cd <repo-dizin>
+```
+
+## 2. Docker'ı Başlatın
+Projeyi Docker'da çalıştırmak için aşağıdaki komutu kullanın:
+```bash
+docker-compose up --build
+```
+## 3. Mikroservislerin `index.js` Dosyasını Düzenleyin
+Docker konteynerinde her mikroservisin `index.js` dosyasına gidin ve aşağıdaki kodu **yorum satırına alın**:
+```javascript
+(async () => {
+  await sequelize.sync({ force: true });
+})();
+```
+
+## 4. Notlar
+- `.env` ve `node_modules` dosyasını `.dockerignore` dosyasına ekleyerek Docker'a dahil edilmesini engelleyin:
+
+
+
+
 
 

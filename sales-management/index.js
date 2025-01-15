@@ -25,9 +25,9 @@ app.use(salesRoutes);
 app.use(swaggerRoutes);
 
 
-// (async () => {
-//   await sequelize.sync({ force: true });
-// })();
+(async () => {
+  await sequelize.sync({ force: true });
+})();
 
 app.use(handleError);
 
