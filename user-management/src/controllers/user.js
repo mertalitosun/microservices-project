@@ -48,7 +48,6 @@ exports.create_users = async (req,res,next) => {
         const hashedPassword = await bcrypt.hash(password,10);
 
         // rol kontrol
-
         if (!role) {
             return res.status(400).json({
                 success: false,

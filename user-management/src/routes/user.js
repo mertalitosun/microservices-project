@@ -49,8 +49,7 @@ const {isAuth, isAdmin} = require("../../../common/middlewares/auth");
  *                       type: string
  *                       example: "john.doe@example.com"
  *                     role:
- *                       type: integer
- *                       example: 1
+ *                       type: object
  *       404:
  *         description: "Kullanıcı bulunamadı."
  *         content:
@@ -161,8 +160,7 @@ router.get("/users/:userId",isAuth,isAdmin,userController.get_user_byId);
  *                       type: string
  *                       example: "john.doe@example.com"
  *                     role:
- *                       type: integer
- *                       example: 1
+ *                       type: object
  *       404:
  *         description: "Kullanıcı bulunamadı."
  *         content:
@@ -342,10 +340,10 @@ router.delete("/users/:userId",isAuth,isAdmin,userController.delete_user);
  *                       type: string
  *                       example: "john.doe@example.com"
  *                     role:
- *                       type: integer
+ *                       type: object
  *                   
  *       400:
- *         description: "Geçersiz rol veya e-posta."
+ *         description: "Bu e-posta zaten kullanılıyor."
  *         content:
  *           application/json:
  *             schema:
@@ -357,6 +355,7 @@ router.delete("/users/:userId",isAuth,isAdmin,userController.delete_user);
  *                 message:
  *                   type: string
  *                   example: "Bu e-posta zaten kullanılıyor."
+ *       
  *       500:
  *         description: "Sunucu hatası"
  *         content:
@@ -416,8 +415,21 @@ router.post("/users",isAuth,isAdmin,userController.create_users);
  *                         type: string
  *                         example: "john.doe@example.com"
  *                       role:
- *                         type: integer
- *                         example: 1
+ *                         type: object
+ *                         
+ *       404:
+ *         description: "Kıullanıcı Bulunamadı!"
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: string
+ *                   example: "false"
+ *                 message:
+ *                   type: string
+ *                   example: "Kullanıcı Bulunamadı!"
  *       500:
  *         description: "Sunucu hatası"
  *         content:
