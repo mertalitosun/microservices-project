@@ -2,11 +2,13 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 require("dotenv").config();
+const path = require("path")
 
-const sequelize = require("../common/db/dbConnection");
-const handleError = require('../common/middlewares/errorHandler');
+const rootDir = path.resolve(__dirname,"..");
+const sequelize = require(path.join(rootDir, 'common/db/dbConnection'));
+const handleError = require(path.join(rootDir, 'common/middlewares/errorHandler'));
 
-require("../common/db/dbConnection");
+require(path.join(rootDir, 'common/db/dbConnection'));
 require("./src/data/relationships");
 
 
