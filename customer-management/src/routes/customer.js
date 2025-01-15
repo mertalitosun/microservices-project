@@ -27,6 +27,16 @@ const {isAuth,isAdmin} = require("../../../common/middlewares/auth");
  *     responses:
  *       200:
  *         description: Müşteri başarıyla silindi
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                 message:
+ *                   type: string
+ *                   example: "Müşteri başarıyla silindi."
  *       404:
  *         description: Müşteri bulunamadı
  *         content:
@@ -84,6 +94,7 @@ router.delete("/customers/:customerId",isAuth,isAdmin,customerController.delete_
  *                   type: boolean
  *                 message:
  *                   type: string
+ *                   example: "Müşteri başarıyla getirildi."
  *                 data:
  *                   type: object
  *                   properties:
@@ -184,6 +195,7 @@ router.get("/customers/:customerId",isAuth,isAdmin,customerController.get_custom
  *                   type: boolean
  *                 message:
  *                   type: string
+ *                   example: "Müşteri başarıyla güncellendi."
  *                 data:
  *                   type: object
  *                   properties:
@@ -283,6 +295,7 @@ router.patch("/customers/:customerId",isAuth,isAdmin,customerController.update_c
  *                   type: boolean
  *                 message:
  *                   type: string
+ *                   example: "Müşteri başarıyla kaydedildi."
  *                 data:
  *                   type: object
  *                   properties:
@@ -399,6 +412,7 @@ router.post("/customers",isAuth,isAdmin,customerController.create_customers);
  *                   type: boolean
  *                 message:
  *                   type: string
+ *                   example: "Müşteri başarıyla getirildi."
  *                 data:
  *                   type: array
  *                   items:
@@ -434,7 +448,7 @@ router.post("/customers",isAuth,isAdmin,customerController.create_customers);
  *                   example: false
  *                 message:
  *                   type: string
- *                   example: "Müşteri bulunamadı."
+ *                   example: "Müşteriler bulunamadı."
  *       500:
  *         description: "Sunucu hatası"
  *         content:
