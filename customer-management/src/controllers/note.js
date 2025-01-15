@@ -1,4 +1,5 @@
 const Notes = require("../models/notes");
+const Customers = require("../models/customers");
 
 exports.update_note = async (req,res,next) => {
     const {noteId} = req.params;
@@ -42,6 +43,11 @@ exports.create_note = async (req,res,next) => {
     const {customerId} = req.params;
     const {title,content} = req.body;
     try{
+        const customer = await Customers.findByPk(customerId);
+
+        if(!customer){
+            return res.status(404).json({success:false,message:"Müşteri bulunamadı"});
+        }
         const newNote = await Notes.create({
             title,
             content,
