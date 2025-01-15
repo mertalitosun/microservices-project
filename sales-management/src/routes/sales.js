@@ -66,9 +66,8 @@ const {isAuth,isSales} = require ("../../../common/middlewares/auth");
  *                     statusChangeDate:
  *                       type: date
  *                       example: "2025-01-14 15:58:07"
- *                     saleId:
- *                       type: integer
- *                       example: 1
+ *                     sale:
+ *                          type: object
  *                  
  *       404:
  *         description: "Satış bilgileri bulunamadı!."
@@ -145,9 +144,8 @@ router.patch("/sales/:saleId",isAuth,isSales,salesController.update_sales);
  *                     statusChangeDate:
  *                       type: date
  *                       example: "2025-01-14 15:58:07"
- *                     saleId:
- *                       type: integer
- *                       example: 1
+ *                     sale:
+ *                          type: object
  *       404:
  *         description: "Satış bilgileri bulunamadı."
  *         content:
@@ -318,9 +316,8 @@ router.post("/sales",isAuth,isSales,salesController.create_sales);
  *                        statusChangeDate:
  *                          type: date
  *                          example: "2025-01-14 15:58:07"
- *                        saleId:
- *                          type: integer
- *                          example: 1
+ *                        sale:
+ *                          type: object
  *       404:
  *         description: "Satış bilgisi bulunamadı."
  *         content:
