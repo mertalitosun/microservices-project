@@ -2,8 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const salesController = require("../controllers/sales");
-const {isAuth,isSales} = require ("../../../common/middlewares/auth");
-
+const { isAuth, isSales } = require("../../../common/middlewares/auth");
 /**
  * @swagger
  * tags:
@@ -99,7 +98,7 @@ const {isAuth,isSales} = require ("../../../common/middlewares/auth");
  *                   type: string
  *                   example: "Bilinmeyen bir hata oluştu."
  */
-router.patch("/sales/:saleId",isAuth,isSales,salesController.update_sales);
+router.patch("/sales/:saleId",isAuth, isSales,salesController.update_sales);
 
 /**
  * @swagger
@@ -176,7 +175,7 @@ router.patch("/sales/:saleId",isAuth,isSales,salesController.update_sales);
  *                   type: string
  *                   example: "Bilinmeyen bir hata oluştu."
  */
-router.get("/sales/:customerId",isAuth,isSales,salesController.get_sales_customer_byId);
+router.get("/sales/:customerId",isAuth, isSales,salesController.get_sales_customer_byId);
 
 /**
  * @swagger
@@ -276,7 +275,7 @@ router.get("/sales/:customerId",isAuth,isSales,salesController.get_sales_custome
  *                   type: string
  *                   example: "Bilinmeyen bir hata oluştu."
  */
-router.post("/sales",isAuth,isSales,salesController.create_sales);
+router.post("/sales",isAuth, isSales,salesController.create_sales);
 
 /**
  * @swagger
@@ -349,6 +348,6 @@ router.post("/sales",isAuth,isSales,salesController.create_sales);
  *                   example: "Bilinmeyen bir hata oluştu."
  */
 
-router.get("/sales",isAuth,isSales,salesController.get_sales);
+router.get("/sales",isAuth, isSales,salesController.get_sales);
 
 module.exports = router;

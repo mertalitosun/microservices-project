@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const customerController = require("../controllers/customer");
-const {isAuth,isAdmin} = require("../../../common/middlewares/auth");
+const { isAuth, isAdmin } = require("../../../common/middlewares/auth");
 
 /**
  * @swagger
@@ -67,7 +67,7 @@ const {isAuth,isAdmin} = require("../../../common/middlewares/auth");
  *                   type: string
  *                   example: "Bilinmeyen bir hata oluştu."
  */
-router.delete("/customers/:customerId",isAuth,isAdmin,customerController.delete_customers);
+router.delete("/customers/:customerId",isAuth, isAdmin,customerController.delete_customers);
 
 /**
  * @swagger
@@ -146,7 +146,7 @@ router.delete("/customers/:customerId",isAuth,isAdmin,customerController.delete_
  *                   type: string
  *                   example: "Bilinmeyen bir hata oluştu."
  */
-router.get("/customers/:customerId",isAuth,isAdmin,customerController.get_customer_byId);
+router.get("/customers/:customerId",isAuth, isAdmin,customerController.get_customer_byId);
 
 /**
  * @swagger
@@ -247,7 +247,7 @@ router.get("/customers/:customerId",isAuth,isAdmin,customerController.get_custom
  *                   type: string
  *                   example: "Bilinmeyen bir hata oluştu."
  */
-router.patch("/customers/:customerId",isAuth,isAdmin,customerController.update_customers);
+router.patch("/customers/:customerId",isAuth, isAdmin,customerController.update_customers);
 
 /**
  * @swagger
@@ -347,7 +347,7 @@ router.patch("/customers/:customerId",isAuth,isAdmin,customerController.update_c
  *                   type: string
  *                   example: "Bilinmeyen bir hata oluştu."
  */
-router.post("/customers",isAuth,isAdmin,customerController.create_customers);
+router.post("/customers",isAuth, isAdmin,customerController.create_customers);
 
 /**
  * @swagger
@@ -466,6 +466,6 @@ router.post("/customers",isAuth,isAdmin,customerController.create_customers);
  *                   type: string
  *                   example: "Bilinmeyen bir hata oluştu."
  */
-router.get("/customers",isAuth,isAdmin,customerController.get_customers);
+router.get("/customers",isAuth, isAdmin,customerController.get_customers);
 
 module.exports = router;

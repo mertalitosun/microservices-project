@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 
 const noteController = require("../controllers/note");
-const {isAuth,isAdmin} = require("../../../common/middlewares/auth");
+const { isAuth, isAdmin } = require("../../../common/middlewares/auth");
+
 /**
  * @swagger
  * tags:
@@ -91,7 +92,7 @@ const {isAuth,isAdmin} = require("../../../common/middlewares/auth");
  *                   type: string
  *                   example: "Bilinmeyen bir hata oluştu."
  */
-router.patch("/notes/:noteId",isAuth,isAdmin,noteController.update_note);
+router.patch("/notes/:noteId",isAuth, isAdmin,noteController.update_note);
 
 /**
  * @swagger
@@ -151,7 +152,7 @@ router.patch("/notes/:noteId",isAuth,isAdmin,noteController.update_note);
  *                   type: string
  *                   example: "Bilinmeyen bir hata oluştu."
  */
-router.delete("/notes/:noteId",isAuth,isAdmin,noteController.delete_note);
+router.delete("/notes/:noteId",isAuth, isAdmin,noteController.delete_note);
 
 /**
  * @swagger
@@ -222,7 +223,7 @@ router.delete("/notes/:noteId",isAuth,isAdmin,noteController.delete_note);
  *                   type: string
  *                   example: "Bilinmeyen bir hata oluştu."
  */
-router.get("/notes/:noteId",isAuth,isAdmin,noteController.get_note_byId);
+router.get("/notes/:noteId",isAuth, isAdmin,noteController.get_note_byId);
 
 /**
  * @swagger
@@ -306,5 +307,5 @@ router.get("/notes/:noteId",isAuth,isAdmin,noteController.get_note_byId);
  *                   type: string
  *                   example: "Bilinmeyen bir hata oluştu."
  */
-router.post("/notes/:customerId",isAuth,isAdmin,noteController.create_note);
+router.post("/notes/:customerId",isAuth, isAdmin,noteController.create_note);
 module.exports = router;
