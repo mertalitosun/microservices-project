@@ -18,8 +18,12 @@ app.use(express.urlencoded({ extended: true }));
 
 
 const salesRoutes = require("./src/routes/sales");
+const swaggerRoutes = require("./src/routes/swagger");
+
 
 app.use(salesRoutes);
+app.use(swaggerRoutes);
+
 
 // (async () => {
 //   await sequelize.sync({ force: true });

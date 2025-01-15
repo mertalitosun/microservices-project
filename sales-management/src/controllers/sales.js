@@ -2,6 +2,8 @@ const Sales = require("../models/sales");
 const SalesStatuses = require("../models/salesStatuses");
 const axios = require("axios");
 
+
+
 exports.update_sales = async (req,res,next) => {
     const {saleId} = req.params;
     const {note,status} = req.body;

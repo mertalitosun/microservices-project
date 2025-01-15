@@ -229,7 +229,6 @@ router.post("/roles", isAuth, isAdmin, roleController.create_roles);
  *     description: "Roller listelenir"
  *     responses:
  *       200:
- *         200:
  *         description: "Roller getirildi."
  *         content:
  *           application/json:
