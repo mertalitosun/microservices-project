@@ -76,8 +76,7 @@ Yada
 ## 1. Git Repo'yu Klonlayın
 Projeyi GitHub'dan klonlamak için terminalde şu komutu çalıştırın:
 ```bash
-git clone <repo-url>
-cd <repo-dizin>
+git clone <https://github.com/mertalitosun/microservices-project.git>
 ```
 
 ## 2. Docker'ı Başlatın
