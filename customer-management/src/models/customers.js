@@ -1,6 +1,7 @@
-const sequelize = require("../../../common/db/dbConnection");
+const path = require("path")
+const rootDir = path.resolve(__dirname,"../");
+const sequelize = require(path.join(rootDir, '/db/dbConnection'));
 const {DataTypes} = require("sequelize");
-
 const Customers = sequelize.define("customer",{
     id:{
         type:DataTypes.INTEGER,

@@ -1,0 +1,93 @@
+version: '3.8'
+
+services:
+  user-management:
+    build: ./user-management
+    ports:
+      - "3001:3001"
+    depends_on:
+      - user-db
+    environment:
+      - DB_HOST=user-db
+      - DB_USER=root
+      - DB_PASS=123
+      - DB=userdb
+      - JWT_SECRET=microserviceUserJwtSecretKey
+      - PORT=3001
+
+  customer-management:
+    build: ./customer-management
+    ports:
+      - "3003:3003"
+    depends_on:
+      - customer-db
+    environment:
+      - DB_HOST=customer-db
+      - DB_USER=root
+      - DB_PASS=123
+      - DB=customerdb
+      - JWT_SECRET=microserviceUserJwtSecretKey
+      - PORT=3003
+
+  sales-management:
+    build: ./sales-management
+    ports:
+      - "3002:3002"
+    depends_on:
+      - sales-db
+    environment:
+      - DB_HOST=sales-db
+      - DB_USER=root
+      - DB_PASS=123
+      - DB=salesdb
+      - JWT_SECRET=microserviceUserJwtSecretKey
+      - PORT=3002
+
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "3004:3004"
+    depends_on:
+      - user-management
+      - customer-management
+      - sales-management
+    environment:
+      - CUSTOMERS_SERVICE_URL=http://customer-management:3003
+      - SALES_SERVICE_URL=http://sales-management:3002
+      - USERS_SERVICE_URL=http://user-management:3001
+      - PORT=3004
+
+  user-db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: userdb
+    ports:
+      - "3307:3306"
+    volumes:
+      - user-db-data:/var/lib/mysql
+
+  customer-db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: customerdb
+    ports:
+      - "3308:3306"
+    volumes:
+      - customer-db-data:/var/lib/mysql
+
+  sales-db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: salesdb
+    ports:
+      - "3309:3306"
+    volumes:
+      - sales-db-data:/var/lib/mysql
+
+volumes:
+  user-db-data:
+  customer-db-data:
+  sales-db-data:

@@ -4,14 +4,12 @@ const cors = require("cors");
 require("dotenv").config();
 const path = require("path")
 
-const rootDir = path.resolve(__dirname,"..");
-const sequelize = require(path.join(rootDir, 'common/db/dbConnection'));
-const handleError = require(path.join(rootDir, 'common/middlewares/errorHandler'));
+const rootDir = path.resolve(__dirname);
+const sequelize = require(path.join(rootDir, 'src/db/dbConnection'));
+const handleError = require(path.join(rootDir, 'src/middlewares/errorHandler'));
 
-
-require(path.join(rootDir, 'common/db/dbConnection'));
-require("./src/data/relationships");
-
+require(path.join(rootDir, 'src/db/dbConnection'));
+require("./src/db/relationships");
 app.use(cors({origin: '*',credentials: true}));
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
@@ -28,6 +26,7 @@ app.use(swaggerRoutes);
 
 // (async () => {
 //   await sequelize.sync({ force: true });
+//   await require("./src/db/dummyData")();
 // })();
 
 

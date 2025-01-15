@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 
 const salesController = require("../controllers/sales");
-const { isAuth, isSales } = require("../../../common/middlewares/auth");
+const { isAuth, isSales } = require("../middlewares/auth");
+
 /**
  * @swagger
  * tags:
