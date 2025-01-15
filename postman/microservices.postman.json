@@ -1,0 +1,756 @@
+{
+	"info": {
+		"_postman_id": "ae355d91-61a7-4d2c-bb7a-2f059d37ff8b",
+		"name": "microservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37040349"
+	},
+	"item": [
+		{
+			"name": "user-management",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Mertali\",\n    \"surname\":\"Tosun\",\n    \"email\":\"mertali2635@icloud.com\",\n    \"password\":\"123456\",\n    \"role\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"mertali2635@icloud.com\",\n    \"password\":\"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/logout",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "users",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtZXJ0YWxpMjYzNUBpY2xvdWQuY29tIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM2ODU5OTgyLCJleHAiOjE3MzY4NjM1ODJ9.PpGv10SqVFCVhwvFFbGhidmY7uIP-DPPBxweFeFYTu4",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "user_byId",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtZXJ0YWxpMjYzNUBpY2xvdWQuY29tIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM2ODA4NzIwLCJleHAiOjE3MzY4MTIzMjB9.t4I7nRnCKKfYLgLZoVhUCG3US9B647fCSsy52h_-Mus",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/users/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"users",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "users",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Denemead\",\n    \"surname\":\"denemesoyad\",\n    \"email\":\"mertalitosun@gmail.com\",\n    \"password\":\"123456\",\n    \"role\":1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "users",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtZXJ0YWxpMjYzNUBpY2xvdWQuY29tIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM2ODA4NzIwLCJleHAiOjE3MzY4MTIzMjB9.t4I7nRnCKKfYLgLZoVhUCG3US9B647fCSsy52h_-Mus",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"mertali\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/users/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "users",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtZXJ0YWxpMjYzNUBpY2xvdWQuY29tIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM2ODA4NzIwLCJleHAiOjE3MzY4MTIzMjB9.t4I7nRnCKKfYLgLZoVhUCG3US9B647fCSsy52h_-Mus",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/users/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"users",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Kullanıcı İşlemleri"
+				},
+				{
+					"name": "roles",
+					"item": [
+						{
+							"name": "roles",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtZXJ0YWxpMjYzNUBpY2xvdWQuY29tIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM2Nzc3MTY0LCJleHAiOjE3MzY3ODA3NjR9.B3zKPkIpv1-Gpv8sl17NR9oGk3HPnZ05RDgSUsb7eKw",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/roles",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"roles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "roles",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"müşteri\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/roles",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"roles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "roles",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Müşteri\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/roles/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"roles",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "roles",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/roles/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"roles",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Rol İşlemleri"
+				}
+			]
+		},
+		{
+			"name": "customer-management",
+			"item": [
+				{
+					"name": "customers",
+					"item": [
+						{
+							"name": "customers",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtZXJ0YWxpMjYzNUBpY2xvdWQuY29tIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM2OTU0MTM0LCJleHAiOjE3MzY5NTc3MzR9.a7iAwT8PCzPJJuPQgKtqCa-MF03clHaNZoyqp8q82go",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3003/customers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3003",
+									"path": [
+										"customers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "customers",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtZXJ0YWxpMjYzNUBpY2xvdWQuY29tIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM2ODM3OTQ1LCJleHAiOjE3MzY4NDE1NDV9.Si5ygixu3cMzS68CMzaPDPFA9jU2Cc-wbo6GvyzJt2U",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Müşteri2 ad\",\n    \"surname\" : \"Müşteri2 soyad\",\n    \"email\":\"musteri2@gmail.com\",\n    \"phone\":\"1111111\",\n    \"company\":\"müşterişirket\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3003/customers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3003",
+									"path": [
+										"customers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "customer_byId",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtZXJ0YWxpMjYzNUBpY2xvdWQuY29tIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM2ODA2ODIzLCJleHAiOjE3MzY4MTA0MjN9.WZKXzp3DABB2QteVhgP3295iz7WWC9Vi3DGvwht1otU",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3003/customers/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3003",
+									"path": [
+										"customers",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "customers",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtZXJ0YWxpMjYzNUBpY2xvdWQuY29tIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM2ODM3OTQ1LCJleHAiOjE3MzY4NDE1NDV9.Si5ygixu3cMzS68CMzaPDPFA9jU2Cc-wbo6GvyzJt2U",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"phone\":\"444444\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3003/customers/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3003",
+									"path": [
+										"customers",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtZXJ0YWxpMjYzNUBpY2xvdWQuY29tIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM2ODAxMjgwLCJleHAiOjE3MzY4MDQ4ODB9.BUTewR5DfwVliM7WsguKhdom6vTTMnPrVHx9CEzR-40",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3003/customers/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3003",
+									"path": [
+										"customers",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Müşteri İşlemleri"
+				},
+				{
+					"name": "notes",
+					"item": [
+						{
+							"name": "note_byId",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtZXJ0YWxpMjYzNUBpY2xvdWQuY29tIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM2ODA3MjAyLCJleHAiOjE3MzY4MTA4MDJ9.lemavMQSCdNjAtStEMCNFboYuFx7fMlem3bQOt8ntXo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3003/notes/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3003",
+									"path": [
+										"notes",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "notes",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtZXJ0YWxpMjYzNUBpY2xvdWQuY29tIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM2ODA3MjAyLCJleHAiOjE3MzY4MTA4MDJ9.lemavMQSCdNjAtStEMCNFboYuFx7fMlem3bQOt8ntXo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\":\"Ödeme\",\n    \"content\":\"Ödeme yapılmadı\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3003/notes/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3003",
+									"path": [
+										"notes",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "notes",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtZXJ0YWxpMjYzNUBpY2xvdWQuY29tIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM2ODA3MjAyLCJleHAiOjE3MzY4MTA4MDJ9.lemavMQSCdNjAtStEMCNFboYuFx7fMlem3bQOt8ntXo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3003/notes/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3003",
+									"path": [
+										"notes",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "notes",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtZXJ0YWxpMjYzNUBpY2xvdWQuY29tIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM2ODA2ODIzLCJleHAiOjE3MzY4MTA0MjN9.WZKXzp3DABB2QteVhgP3295iz7WWC9Vi3DGvwht1otU",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"content\":\"Ödeme yapıldı\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3003/notes/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3003",
+									"path": [
+										"notes",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Not işlemleri"
+				}
+			]
+		},
+		{
+			"name": "sales-management",
+			"item": [
+				{
+					"name": "sales",
+					"item": [
+						{
+							"name": "sales",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtZXJ0YWxpMjYzNUBpY2xvdWQuY29tIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzM2OTU0MTM0LCJleHAiOjE3MzY5NTc3MzR9.a7iAwT8PCzPJJuPQgKtqCa-MF03clHaNZoyqp8q82go",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3002/sales",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3002",
+									"path": [
+										"sales"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "sales",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"customerId\":2,\n    \"status\":\"İletişimde\",\n    \"note\": \"Satış İletişimde\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3002/sales",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3002",
+									"path": [
+										"sales"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "sales_customer_byId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3002/sales/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3002",
+									"path": [
+										"sales",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "sales",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\":\"kapandı\",\n    \"note\":\"kapandı\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3002/sales/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3002",
+									"path": [
+										"sales",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "satış takibi işlemleri"
+				}
+			]
+		}
+	]
+}
