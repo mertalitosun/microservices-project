@@ -59,6 +59,8 @@ const {isAuth,isAdmin} = require("../../../common/middlewares/auth");
  *                     content:
  *                       type: string
  *                       example: "Yeni içerik burada."
+ *                     customer:
+ *                          type: object
  *       404:
  *         description: Not bulunamadı
  *         content:
@@ -188,6 +190,8 @@ router.delete("/notes/:noteId",isAuth,isAdmin,noteController.delete_note);
  *                     content:
  *                       type: string
  *                       example: "Not içeriği burada."
+ *                     customer:
+ *                          type: object
  *       404:
  *         description: Not bulunamadı
  *         content:
@@ -270,6 +274,8 @@ router.get("/notes/:noteId",isAuth,isAdmin,noteController.get_note_byId);
  *                     content:
  *                       type: string
  *                       example: "Yeni içerik burada."
+ *                     customer:
+ *                          type: object
  *       404:
  *         description: Müşteri bulunamadı
  *         content:
