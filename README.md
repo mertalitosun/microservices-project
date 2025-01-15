@@ -1,6 +1,6 @@
 # Microservices Project
 
-Bu proje, mikroservis mimarisi kullanarak geliştirilmiş bir uygulamadır. Her mikroservis bağımsız bir şekilde çalışır ve belirli portlarda hizmet verir. Ortak `common` klasörü üzerinden tüm mikroservisler iletişim kurar, veritabanı bağlantıları ve doğrulama işlemleri yapılır.
+Bu proje, mikroservis mimarisi kullanarak geliştirilmiş bir uygulamadır. Her mikroservis bağımsız bir şekilde çalışır ve belirli portlarda hizmet verir. 
 
 ## Mikroservisler
 
@@ -16,10 +16,6 @@ Bu proje, mikroservis mimarisi kullanarak geliştirilmiş bir uygulamadır. Her 
   Kullanıcı işlemlerini yönetir.  
   [Swagger Documentation](http://localhost:3001)
 
-## Ortak Servisler
-
-- **Common Service**  
-  Veritabanı bağlantıları ve JWT token doğrulama işlemleri için ortak servis.
 
 ## API Gateway
 
