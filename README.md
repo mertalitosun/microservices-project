@@ -95,6 +95,30 @@ Docker konteynerinde her mikroservisin `index.js` dosyasına gidin ve aşağıda
 ## 4. Notlar
 - `.env` ve `node_modules` dosyasını `.dockerignore` dosyasına ekleyerek Docker'a dahil edilmesini engelleyin:
 
+# Postman API Testleri
+
+Proje ana dizininde, her endpoint için örnek Postman isteklerini bulabilirsiniz. Bu istekler, API'nin nasıl çalıştığını anlamak ve test etmek için kullanılabilir.  
+
+## **Postman Kullanımı**
+1. **Postman Dosyası**  
+   - Proje kurulumundan sonra ana dizinde bulunan Postman koleksiyon dosyasını içeri aktararak tüm endpointleri görebilir ve test edebilirsiniz.  
+
+2. **Token ile Yetkilendirme**  
+   - API'ye istek göndermeden önce yetkilendirme gerekmektedir. Aşağıdaki adımları izleyin:  
+     - **Login Endpoint**: Giriş yapmak için gerekli bilgileri kullanarak **Login** endpointine istek gönderin.  
+     - Gelen cevaptaki **Token**'ı kopyalayın.  
+     - Test etmek istediğiniz endpointlere istek yapmadan önce, Postman'da **Headers** kısmına şu bilgiyi ekleyin:  
+       - **Key**: `Authorization`  
+       - **Value**: (Kopyaladığınız tokeni buraya yapıştırın.)  
+
+3. **Postman İstek Örnekleri**  
+   - Tüm endpointler için örnekler mevcuttur.  
+   - Hangi endpointin ne iş yaptığını ve hangi parametreleri kabul ettiğini hızlıca öğrenebilirsiniz.
+
+---
+
+
+
 
 
 

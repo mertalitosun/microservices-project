@@ -55,3 +55,21 @@ Her mikroservisin veritabanı ilişkileri, o mikroservisin **`db/relationships.j
 API Gateway, tüm mikroservislerin tek bir giriş noktasından erişilebilir olmasını sağlar. Gelen istekleri uygun mikroservislere yönlendirmekle görevlidir.
 
 ---
+
+## **Postman Kullanımı**
+1. **Postman Dosyası**  
+   - Proje kurulumundan sonra ana dizinde bulunan Postman koleksiyon dosyasını içeri aktararak tüm endpointleri görebilir ve test edebilirsiniz.  
+
+2. **Token ile Yetkilendirme**  
+   - API'ye istek göndermeden önce yetkilendirme gerekmektedir. Aşağıdaki adımları izleyin:  
+     - **Login Endpoint**: Giriş yapmak için gerekli bilgileri kullanarak **Login** endpointine istek gönderin.  
+     - Gelen cevaptaki **Token**'ı kopyalayın.  
+     - Test etmek istediğiniz endpointlere istek yapmadan önce, Postman'da **Headers** kısmına şu bilgiyi ekleyin:  
+       - **Key**: `Authorization`  
+       - **Value**: (Kopyaladığınız tokeni buraya yapıştırın.)  
+
+3. **Postman İstek Örnekleri**  
+   - Tüm endpointler için örnekler mevcuttur.  
+   - Hangi endpointin ne iş yaptığını ve hangi parametreleri kabul ettiğini hızlıca öğrenebilirsiniz.
+
+---
