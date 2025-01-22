@@ -25,7 +25,7 @@ app.use(noteRoutes);
 app.use(swaggerRoutes);
 
 (async () => {
-  await sequelize.sync({ alter: true });
+  await sequelize.sync({ force: true });
 })();
 
 app.use(handleError);
